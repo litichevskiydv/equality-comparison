@@ -1,0 +1,35 @@
+{
+  "name": "equality-comparison",
+  "version": "1.0.0",
+  "description": "Implementation of configurable equality comparer",
+  "main": "./src/index.js",
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "test": "jest --verbose"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/litichevskiydv/equality-comparison.git"
+  },
+  "keywords": [
+    "Equals",
+    "GetHashCode"
+  ],
+  "author": "Dmitriy Litichevskiy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/litichevskiydv/equality-comparison/issues"
+  },
+  "homepage": "https://github.com/litichevskiydv/equality-comparison#readme",
+  "devDependencies": {
+    "coveralls": "3.0.2",
+    "jest": "23.6.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  }
+}
