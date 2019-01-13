@@ -15,7 +15,7 @@ class OtherKey {
 const otherFunction = x => x;
 const differentFunction = x => x;
 
-module.exports.commonCases = [
+const commonCases = [
   {
     toString: () => "Number and String mustn't be equal",
     first: 1,
@@ -238,10 +238,23 @@ module.exports.commonCases = [
     second: { id: 0, value: "test" },
     options: { membersToIgnore: new Set(["Object.id"]) },
     expected: true
+  },
+  {
+    toString: () => "Must use external hashcode calculator and equals from second object",
+    first: { a: 1, b: 2 },
+    second: {
+      a: 2,
+      b: 1,
+      equals: function(other) {
+        return this.a + this.b === other.a + other.b;
+      }
+    },
+    options: { customCalculators: new Map([[Object.prototype, x => x.a + x.b]]) },
+    expected: true
   }
 ];
 
-module.exports.equalsSpecialCases = [
+const equalsSpecialCases = [
   {
     toString: () => "Must use external comperer for classes",
     first: new Key(2, 1),
@@ -336,4 +349,7 @@ module.exports.equalsSpecialCases = [
   }
 ];
 
-module.exports.equalsAllCases = this.commonCases.concat(this.equalsSpecialCases);
+module.exports = {
+  equalsAllCases: commonCases.concat(equalsSpecialCases),
+  getHashCodeAllCases: commonCases
+};

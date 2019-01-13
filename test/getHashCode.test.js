@@ -126,7 +126,7 @@ describe("Should test getHashCode", () => {
 });
 
 describe("Should verify getHashCode by equals", () => {
-  test.each(require("./testsData").commonCases)("%s", testCase => {
+  test.each(require("./testsData").getHashCodeAllCases)("%s", testCase => {
     // When
     const getHashCodeCheckingResult =
       getHashCode(testCase.first, testCase.options) === getHashCode(testCase.second, testCase.options);
