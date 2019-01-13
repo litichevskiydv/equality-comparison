@@ -46,6 +46,16 @@ function equalsForVariousObjects(first, second, options) {
   return true;
 }
 
+/**
+ * Method checks two objects equality.
+ * @param {*} first First object.
+ * @param {*} second Second object.
+ * @param {boolean} options.ignoreCollectionOrder If false the collection comparison will be performed taking into account the order of the collections, if true, then the differences in the collections order are ignored.
+ * @param {boolean} options.ignoreObjectTypes If false the objects comparison will be performed taking into account objects prototypes, if true, then differences in the objects prototypes are ignored.
+ * @param {Set} options.membersToIgnore Set with objects memebers, provided via format constructorName.memberName which must be ignored during the comparison.
+ * @param {Map} options.customComparers Map with custom comparison functions (takes two objects as a parameters and returns comparison result) which are stored for objects prototypes.
+ * @returns {boolean} Comparison result.
+ */
 function equals(first, second, options) {
   const opts = options || {};
   if (!opts.membersToIgnore) opts.membersToIgnore = new Set();
