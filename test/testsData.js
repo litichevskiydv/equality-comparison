@@ -224,10 +224,7 @@ module.exports.commonCases = [
     first: new Key(1, 1),
     second: new OtherKey(1, 1),
     expected: false
-  }
-];
-
-module.exports.equalsSpecialCases = [
+  },
   {
     toString: () => "Must exclude class member from comparison",
     first: new Key(1, 1),
@@ -241,7 +238,10 @@ module.exports.equalsSpecialCases = [
     second: { id: 0, value: "test" },
     options: { membersToIgnore: new Set(["Object.id"]) },
     expected: true
-  },
+  }
+];
+
+module.exports.equalsSpecialCases = [
   {
     toString: () => "Must use external comperer for classes",
     first: new Key(2, 1),

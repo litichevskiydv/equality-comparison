@@ -8,7 +8,9 @@ function getHashCodeForIterables(operand, options) {
 function equalsForVariousObjects(operand, options) {
   if (operand["getHashCode"]) return operand.getHashCode();
 
+  const constructorName = operand.constructor.name;
   return Object.entries(operand)
+    .filter(x => options.membersToIgnore.has(`${constructorName}.${x[0]}`) === false)
     .sort((a, b) => a[0] - b[0])
     .map(x => (getHashCode(x[0], options) * 31) ^ getHashCode(x[1], options))
     .reduce(
@@ -19,6 +21,7 @@ function equalsForVariousObjects(operand, options) {
 
 function getHashCode(operand, options) {
   const opts = options || {};
+  if (!opts.membersToIgnore) opts.membersToIgnore = new Set();
 
   if (operand === null || operand === undefined) return 0;
 
