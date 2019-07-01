@@ -1,6 +1,6 @@
 {
   "name": "equality-comparison",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Implementation of configurable equality comparer",
   "main": "./src/index.js",
   "files": [
