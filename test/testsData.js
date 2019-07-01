@@ -181,6 +181,12 @@ const commonCases = [
     expected: false
   },
   {
+    toString: () => "Must determine the equality of objects with different keys order",
+    first: { a: 1, b: 2 },
+    second: { b: 2, a: 1 },
+    expected: true
+  },
+  {
     toString: () => "Must determine the equality of objects by deep comparing keys values",
     first: { a: { id: 123, name: "test" }, b: { id: 345, description: "text" } },
     second: { a: { id: 123, name: "test" }, b: { id: 345, description: "text" } },

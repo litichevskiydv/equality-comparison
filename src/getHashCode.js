@@ -12,10 +12,10 @@ function equalsForVariousObjects(operand, options) {
   if (customCalculator) return customCalculator(operand);
 
   const constructorName = operand.constructor.name;
-  return Object.entries(operand)
-    .filter(x => options.membersToIgnore.has(`${constructorName}.${x[0]}`) === false)
-    .sort((a, b) => a[0] - b[0])
-    .map(x => (getHashCode(x[0], options) * 31) ^ getHashCode(x[1], options))
+  return Object.keys(operand)
+    .filter(key => options.membersToIgnore.has(`${constructorName}.${key}`) === false)
+    .sort()
+    .map(key => (getHashCode(key, options) * 31) ^ getHashCode(operand[key], options))
     .reduce(
       (accumulator, current) => (accumulator * 31) ^ current,
       options.ignoreObjectTypes ? 0 : getHashCode(operand.constructor.name, options)
