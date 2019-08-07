@@ -28,11 +28,22 @@ const commonCases = [
     second: true,
     expected: false
   },
-
   {
     toString: () => "Number and Null mustn't be equal",
     first: 1,
     second: null,
+    expected: false
+  },
+  {
+    toString: () => "Object and Null mustn't be equal",
+    first: {},
+    second: null,
+    expected: false
+  },
+  {
+    toString: () => "Null and Object mustn't be equal",
+    first: null,
+    second: {},
     expected: false
   },
   {

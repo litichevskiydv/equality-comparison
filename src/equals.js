@@ -62,6 +62,7 @@ function equals(first, second, options) {
   if (!opts.customComparers) opts.customComparers = new Map();
 
   if (first === second) return true;
+  if (first === null || second === null) return false;
 
   const firstType = typeof first;
   if (firstType !== typeof second || firstType !== "object") return false;
