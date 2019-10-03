@@ -32,11 +32,11 @@ function equalsForVariousObjects(operand, options) {
  * @returns {number} Computed hashcode.
  */
 function getHashCode(operand, options) {
+  if (operand === null || operand === undefined) return 0;
+
   const opts = options || {};
   if (!opts.membersToIgnore) opts.membersToIgnore = new Set();
   if (!opts.customCalculators) opts.customCalculators = new Map();
-
-  if (operand === null || operand === undefined) return 0;
 
   switch (typeof operand) {
     case "boolean":

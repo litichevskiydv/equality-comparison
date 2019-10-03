@@ -57,20 +57,18 @@ function equalsForVariousObjects(first, second, options) {
  * @returns {boolean} Comparison result.
  */
 function equals(first, second, options) {
-  const opts = options || {};
-  if (!opts.membersToIgnore) opts.membersToIgnore = new Set();
-  if (!opts.customComparers) opts.customComparers = new Map();
-
   if (first === second) return true;
   if (first === null || second === null) return false;
 
   const firstType = typeof first;
   if (firstType !== typeof second || firstType !== "object") return false;
-
   if (first instanceof Date && second instanceof Date) return first.getTime() === second.getTime();
 
+  const opts = options || {};
+  if (!opts.membersToIgnore) opts.membersToIgnore = new Set();
+  if (!opts.customComparers) opts.customComparers = new Map();
+  
   if (first[Symbol.iterator] && second[Symbol.iterator]) return equalsForIterables(first, second, opts);
-
   return equalsForVariousObjects(first, second, opts);
 }
 
