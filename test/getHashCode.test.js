@@ -1,4 +1,4 @@
-const { getHashCode } = require("../src/getHashCode");
+const { getHashCode, DefaultEqualityComparer } = require("../src");
 
 class Key {
   constructor(hi, lo) {
@@ -15,8 +15,8 @@ class OtherKey {
 }
 
 describe("Should test getHashCode", () => {
-  const otherFunction = x => x;
-  const differentFunction = x => x;
+  const otherFunction = (x) => x;
+  const differentFunction = (x) => x;
 
   const testCases = [
     {
@@ -81,7 +81,7 @@ describe("Should test getHashCode", () => {
       operand: {
         a: 1,
         b: 2,
-        getHashCode: function() {
+        getHashCode: function () {
           return this.a + this.b;
         }
       },
@@ -116,7 +116,7 @@ describe("Should test getHashCode", () => {
     }
   ];
 
-  test.each(testCases)("%s", testCase => {
+  test.each(testCases)("%s", (testCase) => {
     // When
     const actual = getHashCode(testCase.operand, testCase.options);
 
@@ -126,7 +126,7 @@ describe("Should test getHashCode", () => {
 });
 
 describe("Should verify getHashCode by equals", () => {
-  test.each(require("./testsData").getHashCodeAllCases)("%s", testCase => {
+  test.each(require("./testsData").getHashCodeAllCases)("%s", (testCase) => {
     // When
     const getHashCodeCheckingResult =
       getHashCode(testCase.first, testCase.options) === getHashCode(testCase.second, testCase.options);

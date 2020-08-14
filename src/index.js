@@ -1,1 +1,9 @@
-module.exports = Object.assign({}, require("./getHashCode"), require("./equals"), require("./defaultEqualityComparer"));
+const { equals } = require("./equals");
+const { getHashCode } = require("./getHashCode");
+const { DefaultEqualityComparer } = require("./defaultEqualityComparer");
+
+module.exports = {
+  equals,
+  getHashCode,
+  DefaultEqualityComparer
+};

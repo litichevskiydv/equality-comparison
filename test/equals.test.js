@@ -1,7 +1,7 @@
-const { equals } = require("../src/equals");
+const { equals } = require("../src");
 
 describe("Should test equals", () => {
-  test.each(require("./testsData").equalsAllCases)("%s", testCase => {
+  test.each(require("./testsData").equalsAllCases)("%s", (testCase) => {
     // When
     const actual = equals(testCase.first, testCase.second, testCase.options);
 
