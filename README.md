@@ -2,8 +2,7 @@
 
 [![npm version](https://badge.fury.io/js/equality-comparison.svg)](https://www.npmjs.com/package/equality-comparison)
 [![npm downloads](https://img.shields.io/npm/dt/equality-comparison.svg)](https://www.npmjs.com/package/equality-comparison)
-[![dependencies](https://img.shields.io/david/litichevskiydv/equality-comparison.svg)](https://www.npmjs.com/package/equality-comparison)
-[![dev dependencies](https://img.shields.io/david/dev/litichevskiydv/equality-comparison.svg)](https://www.npmjs.com/package/equality-comparison)
+[![dependencies status](https://img.shields.io/librariesio/github/litichevskiydv/equality-comparison)](https://www.npmjs.com/package/equality-comparison)
 [![Build Status](https://github.com/litichevskiydv/equality-comparison/actions/workflows/ci.yaml/badge.svg?branch=master)](https://github.com/litichevskiydv/equality-comparison/actions/workflows/ci.yaml)
 [![Coverage Status](https://coveralls.io/repos/github/litichevskiydv/equality-comparison/badge.svg?branch=master)](https://coveralls.io/github/litichevskiydv/equality-comparison?branch=master)
 
